@@ -1,32 +1,21 @@
 package com.bridgelabz;
 
 public class CheckMax {
-    public Integer integerMax(Integer number1, Integer number2, Integer number3) {
-        Integer max = number1;
-        if (number2.compareTo(max) > 0) {
-            max = number2;
-        }if (number3.compareTo(max) > 0) {
-            max = number3;
+    /**
+     * @method findmaximum
+     * @param value1 first number
+     * @param value2 second number
+     * @param value3 third number
+     * @param <T> type (integer or float or string)
+     * @return the maximim value
+     */
+    public static <T extends Comparable<T>> T findMaximum(T value1, T value2, T value3){
+        T max = value1;
+        if (value2.compareTo(max) > 0){
+            max = value2;
         }
-        return max;
-    }
-
-    public Float floatMax(Float number1, Float number2, Float number3) {
-        Float max = number1;
-        if (number2.compareTo(max) > 0) {
-            max = number2;
-        }if (number3.compareTo(max) > 0) {
-            max = number3;
-        }
-        return max;
-    }
-
-    public String stringMax(String number1, String number2, String number3) {
-        String max = number1;
-        if (number2.compareTo(max) > 0) {
-            max = number2;
-        }if (number3.compareTo(max) > 0) {
-            max = number3;
+        if (value3.compareTo(max) > 0) {
+            max = value3;
         }
         return max;
     }
