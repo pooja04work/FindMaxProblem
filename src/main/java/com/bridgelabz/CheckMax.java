@@ -21,5 +21,13 @@ public class CheckMax {
         return max;
     }
 
-
+    public String stringMax(String number1, String number2, String number3) {
+        String max = number1;
+        if (number2.compareTo(max) > 0) {
+            max = number2;
+        }if (number3.compareTo(max) > 0) {
+            max = number3;
+        }
+        return max;
+    }
 }

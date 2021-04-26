@@ -48,5 +48,24 @@ public class ValidateMax {
         Assert.assertEquals(9.0f, valueToCheck, 0.0);
     }
 
+    @Test
+    public void stringMaxAtFirstPositionTest() {
+        String valueToCheck = checkMax.stringMax("Peach", "Apple", "Banana");
+        Assert.assertEquals("Peach", valueToCheck);
+    }
+
+    @Test
+    public void stringMaxAtSecondPositionTest() {
+        String valueToCheck = checkMax.stringMax("Apple", "Peach", "Bannana");
+        Assert.assertEquals("Peach" , valueToCheck);
+    }
+
+    @Test
+    public void stringMaxAtThirdPositionTest() {
+        String valueToCheck = checkMax.stringMax("Apple", "Bannana", "Peach");
+        Assert.assertEquals("Peach", valueToCheck);
+    }
+
+
 
 }
