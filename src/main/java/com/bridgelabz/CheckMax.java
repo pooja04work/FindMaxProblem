@@ -11,6 +11,9 @@ public class CheckMax<T extends Comparable<T>> {
     public CheckMax() {
 
     }
+    public  T maximum() {
+        return CheckMax.findMaximum(value1, value2, value3);
+    }
     /**
      * @param value1 first number
      * @param value2 second number
@@ -27,9 +30,9 @@ public class CheckMax<T extends Comparable<T>> {
         if (value3.compareTo(max) > 0) {
             max = value3;
         }
+        printMax(max);
         return max;
     }
-
     public T testMaximum(T value1, T value2, T value3) {
         T max = value1;
         if (value2.compareTo(max) > 0) {
@@ -38,12 +41,12 @@ public class CheckMax<T extends Comparable<T>> {
         if (value3.compareTo(max) > 0) {
             max = value3;
         }
-        printMax(value1, value2, value3, max);
+        printMax(max);
         return max;
     }
     //@method is to print the value
-    private void printMax(T value1, T value2, T value3, T max) {
-        System.out.printf("Max of %s, %s and %s is %s\n",value1, value2, value3, max);
+    private static <T> void printMax( T max) {
+        System.out.printf("Max value is:" + max + "\n");
     }
 
     public static <T> void main(String args[]) {
@@ -51,8 +54,15 @@ public class CheckMax<T extends Comparable<T>> {
         Float value1Fl = 6.6f, value2Fl = 8.8f, value3Fl = 7.7f;
         String value1Str = "pear", value2Str = "apple", value3Str = "orange";
         CheckMax checkMax = new CheckMax();
+
+        //testMaximum method
         checkMax.testMaximum(value1Int, value2Int, value3Int);
         checkMax.testMaximum(value1Fl, value2Fl, value3Fl);
         checkMax.testMaximum(value1Str, value2Str, value3Str);
+
+        //  maximum method
+        new CheckMax(value1Int, value2Int, value3Int).maximum();
+        new CheckMax(value1Fl, value2Fl, value3Fl).maximum();
+        new CheckMax(value1Str, value2Str, value3Str).maximum();
     }
 }
