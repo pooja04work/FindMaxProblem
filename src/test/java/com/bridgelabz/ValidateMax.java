@@ -104,6 +104,24 @@ public class ValidateMax {
         Assert.assertEquals("Peach", valueToCheck);
     }
 
+    @Test
+    public void stringMaxTestWithMultipleValues() {
+        String valueToCheck = checkMax.findMaximum("Apple", "Bannana", "Peach", "mango","ziooj");
+        Assert.assertEquals("ziooj", valueToCheck);
+    }
+
+    @Test
+    public void floatMaxTestWithMultipleValues() {
+        float valueToCheck = checkMax.findMaximum(9.6f,7.3f,2.3f,4.5f);
+        Assert.assertEquals(9.6f, valueToCheck,0.0);
+    }
+
+    @Test
+    public void integerMaxTestWithMultipleValues() {
+        int valueToCheck = checkMax.findMaximum(10,13,88,90);
+        Assert.assertEquals(90, valueToCheck);
+    }
+
 
 
 }

@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.Arrays;
+
 public class CheckMax<T extends Comparable<T>> {
     T value1, value2, value3;
 
@@ -9,8 +11,8 @@ public class CheckMax<T extends Comparable<T>> {
         this.value3 = value3;
     }
     public CheckMax() {
-
     }
+    //@method internally call the static method
     public  T maximum() {
         return CheckMax.findMaximum(value1, value2, value3);
     }
@@ -33,36 +35,21 @@ public class CheckMax<T extends Comparable<T>> {
         printMax(max);
         return max;
     }
-    public T testMaximum(T value1, T value2, T value3) {
-        T max = value1;
-        if (value2.compareTo(max) > 0) {
-            max = value2;
-        }
-        if (value3.compareTo(max) > 0) {
-            max = value3;
+    //@method entends previous findMaximum and allow more the 3 inputs
+    public static <T extends Object & Comparable<T>> T findMaximum(T ... elements) {
+        Arrays.sort(elements);
+        T max = elements[0];
+        for (T element : elements) {
+            if (element.compareTo(max) > 0) {
+                max = element;
+            }
         }
         printMax(max);
         return max;
     }
+
     //@method is to print the value
-    private static <T> void printMax( T max) {
+    private static <T> void printMax(T max) {
         System.out.printf("Max value is:" + max + "\n");
-    }
-
-    public static <T> void main(String args[]) {
-        Integer value1Int = 3, value2Int = 4, value3Int = 5;
-        Float value1Fl = 6.6f, value2Fl = 8.8f, value3Fl = 7.7f;
-        String value1Str = "pear", value2Str = "apple", value3Str = "orange";
-        CheckMax checkMax = new CheckMax();
-
-        //testMaximum method
-        checkMax.testMaximum(value1Int, value2Int, value3Int);
-        checkMax.testMaximum(value1Fl, value2Fl, value3Fl);
-        checkMax.testMaximum(value1Str, value2Str, value3Str);
-
-        //  maximum method
-        new CheckMax(value1Int, value2Int, value3Int).maximum();
-        new CheckMax(value1Fl, value2Fl, value3Fl).maximum();
-        new CheckMax(value1Str, value2Str, value3Str).maximum();
     }
 }
